@@ -101,6 +101,7 @@ const refreshDraw = () => {
 const setDrawType = (type: "number" | "name") => {
   drawType.value = type;
   itemsDraw.value = [];
+  availableDrawItems.value = [];
 };
 </script>
 
@@ -157,7 +158,7 @@ const setDrawType = (type: "number" | "name") => {
                   min="1"
                   :max="repeatDrawItem ? 1000 : endIn - startIn + 1"
                 ></Input>
-                <p>número entre:</p>
+                <p>número(s) entre:</p>
               </div>
               <div class="flex flex-row items-center">
                 <Input
@@ -282,7 +283,7 @@ const setDrawType = (type: "number" | "name") => {
       <CardHeader>
         <CardTitle>Números sorteados:</CardTitle>
       </CardHeader>
-      <CardContent class="space-y-2 grid grid-cols-8">
+      <CardContent class="space-y-2 grid grid-cols-10">
         <div
           v-for="number in itemsDraw"
           :key="number"
