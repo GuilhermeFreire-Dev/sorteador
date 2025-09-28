@@ -26,8 +26,9 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "pt-BR",
       },
-      link: [
-        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      meta: [
+        { name: "google-adsense-account", content: "ca-pub-6227277450756568" },
       ],
     },
   },
