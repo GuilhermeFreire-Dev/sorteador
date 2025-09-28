@@ -106,8 +106,8 @@ const setDrawType = (type: "number" | "name") => {
 
 <template>
   <div class="bg-slate-900 flex flex-col items-center min-h-screen">
-    <img src="/assets/img/logo.png" class="w-1/6" alt="" />
-    <Tabs default-value="number" class="w-1/3">
+    <img src="/assets/img/logo.png" class="w-1/2 sm:w-1/5" alt="" />
+    <Tabs default-value="number" class="w-5/6 sm:w-2/3 lg:w-1/2">
       <TabsList class="grid w-full grid-cols-2">
         <TabsTrigger
           value="number"
@@ -147,33 +147,39 @@ const setDrawType = (type: "number" | "name") => {
             </div>
           </CardHeader>
           <CardContent>
-            <div class="flex flex-row items-center">
-              <Label>Sortear</Label>
-              <Input
-                v-model="numDrawLen"
-                class="w-16 h-12 mx-2 text-center font-bold"
-                type="number"
-                min="1"
-                :max="repeatDrawItem ? 1000 : endIn - startIn + 1"
-              ></Input>
-              <p>número entre:</p>
-              <Input
-                v-model="startIn"
-                class="w-16 h-12 mx-2 text-center font-bold"
-                type="number"
-                min="0"
-                :max="endIn - 1"
-              ></Input>
-              <p class="mx-2">e</p>
-              <Input
-                v-model="endIn"
-                class="w-16 h-12 mx-2 text-center font-bold"
-                type="number"
-                :min="startIn + 1"
-              ></Input>
+            <div class="flex flex-col space-y-5 sm:flex-row sm:items-center sm:space-y-0">
+              <div class="flex flex-row items-center">
+                <Label>Sortear</Label>
+                <Input
+                  v-model="numDrawLen"
+                  class="w-16 h-12 mx-2 text-center font-bold"
+                  type="number"
+                  min="1"
+                  :max="repeatDrawItem ? 1000 : endIn - startIn + 1"
+                ></Input>
+                <p>número entre:</p>
+              </div>
+              <div class="flex flex-row items-center">
+                <Input
+                  v-model="startIn"
+                  class="w-16 h-12 mx-2 text-center font-bold"
+                  type="number"
+                  min="0"
+                  :max="endIn - 1"
+                ></Input>
+                <p class="mx-2">e</p>
+                <Input
+                  v-model="endIn"
+                  class="w-16 h-12 mx-2 text-center font-bold"
+                  type="number"
+                  :min="startIn + 1"
+                ></Input>
+              </div>
             </div>
           </CardContent>
-          <CardFooter class="flex flex-row justify-between">
+          <CardFooter
+            class="flex flex-col items-start sm:flex-row sm:justify-between space-y-5"
+          >
             <div class="flex items-center space-x-2">
               <Switch
                 id="repeat-numbers"
@@ -192,7 +198,7 @@ const setDrawType = (type: "number" | "name") => {
                   itemsDraw.length > 0) ||
                 itemsDraw.length === numDrawLen
               "
-              class="cursor-pointer"
+              class="cursor-pointer w-full sm:w-auto"
               >Sortear</Button
             >
           </CardFooter>
@@ -245,7 +251,7 @@ const setDrawType = (type: "number" | "name") => {
             </Alert>
           </CardContent>
           <CardFooter>
-            <div class="w-full flex flex-row justify-between">
+            <div class="w-full flex flex-col sm:flex-row justify-between space-y-5">
               <div class="flex items-center space-x-2">
                 <Switch
                   id="repeat-names"
@@ -271,7 +277,7 @@ const setDrawType = (type: "number" | "name") => {
     </Tabs>
     <Card
       v-show="drawType === 'number' && itemsDraw.length > 0"
-      class="w-1/3 mt-2"
+      class="w-5/6 sm:w-2/3 lg:w-1/2 mt-2"
     >
       <CardHeader>
         <CardTitle>Números sorteados:</CardTitle>
@@ -288,7 +294,7 @@ const setDrawType = (type: "number" | "name") => {
     </Card>
     <Card
       v-show="drawType === 'name' && itemsDraw.length > 0"
-      class="w-1/3 mt-2"
+      class="w-5/6 sm:w-2/3 lg:w-1/2 mt-2"
     >
       <CardHeader>
         <CardTitle>Nomes sorteados:</CardTitle>

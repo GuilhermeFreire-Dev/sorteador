@@ -20,6 +20,7 @@ export default defineNuxtConfig({
      */
     componentDir: "./components/ui",
   },
+  ssr: false,
   app: {
     head: {
       title: "Sorteador",
@@ -29,6 +30,13 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
       meta: [
         { name: "google-adsense-account", content: "ca-pub-6227277450756568" },
+      ],
+      script: [
+        {
+          async: true,
+          src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6227277450756568",
+          crossorigin: "anonymous",
+        },
       ],
     },
   },
