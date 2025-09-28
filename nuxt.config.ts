@@ -30,6 +30,7 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
       meta: [
         { name: "google-adsense-account", content: "ca-pub-6227277450756568" },
+        { name: "google-site-verification", content: "63Mli8fzoSjnrqM7Iw7-fs2gTyA9Q6S4Ewf4L34-CNY" }
       ],
       script: [
         {
