@@ -74,7 +74,10 @@ const drawLots = () => {
 
   itemsDraw.value = [...itemsDraw.value, `${itemDraw}`];
 
-  if (drawType.value === "number" && itemsDraw.value.length < numDrawLen.value) {
+  if (
+    drawType.value === "number" &&
+    itemsDraw.value.length < numDrawLen.value
+  ) {
     drawLots();
   }
 };
@@ -185,8 +188,9 @@ const setDrawType = (type: "number" | "name") => {
               @click="drawLots"
               :disabled="
                 (!repeatDrawItem &&
-                availableDrawItems.length === 0 &&
-                itemsDraw.length > 0) || itemsDraw.length === numDrawLen
+                  availableDrawItems.length === 0 &&
+                  itemsDraw.length > 0) ||
+                itemsDraw.length === numDrawLen
               "
               class="cursor-pointer"
               >Sortear</Button
